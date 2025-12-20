@@ -1,0 +1,17 @@
+__pycache__
+temp
+*.pyc
+*.json
+PrivateResources.java
+backend/target/
+*.class
+*.jar
+*.war
+.help
+.mvn/
+backend/mvnw
+backend/mvnw.cmd
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
