@@ -3,13 +3,12 @@ package com.springboot.callDownloader.ctService;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class CTFirstResponse {
-    @JsonIgnoreProperties(ignoreUnknown = true)
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class CTFirstResponse<T> { 
     @JsonProperty("responseData")
-    private ctResponse ctresponse;
+    private ctResponse<T> responseData;
 
-    public ctResponse getResponseData() { return ctresponse; }
-    public void setResponseData(ctResponse ctresponse) { this.ctresponse = ctresponse; }
+    public ctResponse<T> getResponseData() { return responseData; }
+    public void setResponseData(ctResponse<T> responseData) { this.responseData = responseData; }
 }
-

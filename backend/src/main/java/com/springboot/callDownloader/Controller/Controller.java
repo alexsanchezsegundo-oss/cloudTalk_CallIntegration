@@ -28,4 +28,10 @@ public class Controller {
     public String ctNumbers() {
         return ctService.getNumbers();
     }
+    @GetMapping("/calls/ReportToCSV")
+    public String dwCallEventCSV(){
+
+        return ctService.callToCSV();
+
+    }
 }

@@ -1,6 +1,4 @@
 package com.springboot.callDownloader.Model;
-
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
@@ -10,11 +8,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
 @Entity
 @Table(name = "calls")
 public class Model {
 
-        //API key and password are in another private .java (in order to maintain safety). These few lines below describes what contains that PrivateResources class 
+    //API key and password are in another private .java (in order to maintain safety). These few lines below describes what contains that PrivateResources class 
     /*
     String api_key = "YOUR_API_KEY_HERE";
     String api_pass = "YOUR_API_PASS_HERE";
@@ -31,9 +30,12 @@ public class Model {
         this.api_pass = api_pass;
     } 
     */
+    //only for internal use, it is not saved on DB   
+    String type;
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    @SuppressWarnings("unused")
     private int internalID;
     @JsonProperty("id")
     private int idAgent;
@@ -43,14 +45,17 @@ public class Model {
     private String lastname;
     @Column(name = "nameAgent")
     private String nameAgent;
-    @Column(name = "dateTime")
-    private String dateTime;
+    @Column(name = "dateTimeFrom")
+    private String dateTimeFrom;
+    @Column(name = "dateTimeTo")
+    private String dateTimeTo;
     @Column(name = "downloadUrl")
     private String downloadUrl;
     @Column(name = "extension")
     private int extension;
     @Column(name = "call_id")
     private int callId;
+    
     String url = "https://my.cloudtalk.io/api/";
 
 
@@ -86,11 +91,11 @@ public class Model {
         nameAgent = firstname + " " + lastname;
         this.nameAgent = nameAgent;
     }
-    public String getDateTime() {
-        return dateTime;
+    public String getdateTimeFrom() {
+        return dateTimeFrom;
     }
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
+    public void setdateTimeFrom(String dateTimeFrom) {
+        this.dateTimeFrom = dateTimeFrom;
     }
     public String getDownloadUrl() {
         return downloadUrl;
@@ -98,7 +103,18 @@ public class Model {
     public void setDownloadUrl(String downloadUrl) {
         this.downloadUrl = downloadUrl;
     }
-
+    public String getDateTimeTo() {
+        return dateTimeTo;
+    }
+    public void setDateTimeTo(String dateTimeTo) {
+        this.dateTimeTo = dateTimeTo;
+    }
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
+    }
 
 
 
